@@ -1,5 +1,7 @@
 # Stormstout
 
+![maxresdefault](https://user-images.githubusercontent.com/3152452/192126123-33d1ac15-731b-4cf8-8829-003627553f0b.jpeg)
+
 Stormstout is an Aptos-based NFT marketplace dapp
 It is implemented using Elixir [Phoenix](https://www.phoenixframework.org/)
 
