@@ -15,7 +15,6 @@ defmodule Stormstout.Explorer.Model.Event do
     field :account, :string
     field :amount, :string
     field :data, :map
-    field :key, :string
     field :sequence_number, :integer
     field :event_handle_id, :string
     field :type, :string
@@ -32,7 +31,6 @@ defmodule Stormstout.Explorer.Model.Event do
       sequence_number
       event_handle_id
       account
-      key
       token_id
       type
     )a

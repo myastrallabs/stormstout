@@ -31,7 +31,7 @@ defmodule Stormstout.Import.Runner.Events do
       Import.insert_changes_list(
         repo,
         changes_list,
-        conflict_target: [:key, :sequence_number],
+        conflict_target: [:type, :sequence_number],
         on_conflict: :nothing,
         for: Event,
         returning: true,

@@ -58,6 +58,21 @@ defmodule Stormstout.Fetcher.Transform do
   defp entry_to_elixir(entry), do: entry
 
   defp event_to_params(event_data, task_data) do
+    # %{
+    #   data: %{
+    #     market_id: %{market_address: "0x1deec95982be38fe32d02e0c3018a7c6730df74c71b838f40aebcc6d48f6472b", market_name: "stormstout"},
+    #     offer_id: "10",
+    #     price: "1",
+    #     seller: "0x7cd8b0290a535270f86d66579925533d1809a700bc149457f68df6f1d73c9fea",
+    #     timestamp: "1663557726803592",
+    #     token_id: %{property_version: "0", token_data_id: %{collection: "test2", creator: "0x7cd8b0290a535270f86d66579925533d1809a700bc149457f68df6f1d73c9fea", name: "test2"}}
+    #   },
+    #   guid: %{account_address: "0x1deec95982be38fe32d02e0c3018a7c6730df74c71b838f40aebcc6d48f6472b", creation_number: "5"},
+    #   sequence_number: "0",
+    #   type: "0x1deec95982be38fe32d02e0c3018a7c6730df74c71b838f40aebcc6d48f6472b::marketplace::ListTokenEvent",
+    #   version: "59837317"
+    # }
+
     %{
       sequence_number: event_data.sequence_number,
       token_id: get_token_id(event_data),
@@ -65,8 +80,7 @@ defmodule Stormstout.Fetcher.Transform do
       data: event_data.data,
       account: task_data.account,
       version: event_data.version,
-      type: event_data.type,
-      key: event_data.key
+      type: event_data.type
     }
   end
 
@@ -74,9 +88,7 @@ defmodule Stormstout.Fetcher.Transform do
     %{
       data: event_data.data,
       version: event_data.version,
-      type: event_data.type,
       sequence_number: event_data.sequence_number,
-      key: event_data.key,
       token_id: get_token_id(event_data),
       status: "ongoing",
       price: event_data.data.price,
@@ -93,7 +105,6 @@ defmodule Stormstout.Fetcher.Transform do
       version: event_data.version,
       type: event_data.type,
       sequence_number: event_data.sequence_number,
-      key: event_data.key,
       token_id: get_token_id(event_data),
       price: event_data.data.price,
       maker: event_data.data.seller,
