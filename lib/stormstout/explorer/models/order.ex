@@ -9,7 +9,6 @@ defmodule Stormstout.Explorer.Model.Order do
   @timestamps_opts [type: :utc_datetime_usec]
   schema "orders" do
     field :data, :map
-    field :key, :string
     field :maker, :string
     field :taker, :string
     field :order_id, :string
@@ -40,7 +39,6 @@ defmodule Stormstout.Explorer.Model.Order do
 
     optional_fields = ~w(
       version
-      key
       type
       status
       taker
